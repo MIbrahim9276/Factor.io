@@ -3,6 +3,7 @@ use ini::Ini;
 pub struct LogConfig {
     pub level: String,
     pub file_logging: bool,
+    pub console_logging: bool,
     pub log_dir: String,
     pub file_name: String
 }
@@ -18,6 +19,10 @@ fn load_log_config(conf: &Ini) -> LogConfig {
     let config = LogConfig {
         level: section.get("level").unwrap_or("info").to_string(),
         file_logging: section.get("file_logging")
+            .unwrap_or("true")
+            .parse::<bool>()
+            .unwrap_or(true),
+        console_logging: section.get("console_logging")
             .unwrap_or("true")
             .parse::<bool>()
             .unwrap_or(true),
