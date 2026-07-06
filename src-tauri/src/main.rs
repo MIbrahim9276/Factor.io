@@ -3,6 +3,6 @@
 
 fn main() {
 
-    factor_io_lib::run();
+    refactorio_lib::run();
 
 }
