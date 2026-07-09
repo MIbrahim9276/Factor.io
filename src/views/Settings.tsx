@@ -14,12 +14,15 @@ export default function Settings() {
     return (
         <div className='flex-1 w-full p-6 sm:p-8 lg:p-10'>
             <div className='flex h-full flex-col gap-8'>
-                <section className='flex flex-col gap-3'>
-                    <p className='text-sm font-medium'>Preferences</p>
-                    <div className='space-y-2'>
-                        <h1 className='text-4xl font-semibold tracking-tight sm:text-5xl'>Settings</h1>
-                        <p className='max-w-2xl text-sm text-muted-foreground sm:text-base'>Configure your Factorio installation, app appearance, and logging behavior.</p>
+                <section className='flex justify-between'>
+                    <div className='flex flex-col gap-3'>
+                        <p className='text-sm font-medium'>Preferences</p>
+                        <div className='space-y-2'>
+                            <h1 className='text-4xl font-semibold tracking-tight sm:text-5xl'>Settings</h1>
+                            <p className='max-w-2xl text-sm text-muted-foreground sm:text-base'>Configure your Factorio installation, app appearance, and logging behavior.</p>
+                        </div>
                     </div>
+                    <Button variant='default' size='lg'>Save Changes</Button>
                 </section>
 
                 <section className='grid gap-4 lg:grid-cols-2'>

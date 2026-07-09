@@ -10,7 +10,7 @@ interface FactorioInstallationStore {
 }
 
 export const useFactorioInstallationStore = create<FactorioInstallationStore>((set) => ({
-    installation: factorioInstallationMock,
+    //installation: factorioInstallationMock,
 
     setInstallation: (installation) => set({ installation }),
     clearInstallation: () => set({ installation: undefined })

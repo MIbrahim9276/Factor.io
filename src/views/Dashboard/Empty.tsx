@@ -2,13 +2,38 @@ import { Button } from "#components/ui/button";
 import { useFactorioInstallationStore } from "#store/FactorioInstallation.store";
 import { RiToolsLine } from "@remixicon/react";
 import { factorioInstallationMock } from "../../mock/FactorioInstallationMock";
+import { useEffect } from "react";
+import { getCurrentWindow } from '@tauri-apps/api/window';
+import { open } from '@tauri-apps/plugin-dialog';
 
 export default function EmptyDashboard() {
     const { setInstallation } = useFactorioInstallationStore();
 
-    function locateInstallationHandle() {
-        setInstallation(factorioInstallationMock);
+    async function locateInstallationHandle() {
+        const folder = await open({
+            multiple: false,
+            directory: true
+        });
+        console.log(folder);
+        if (!folder) return;
+        
+        setInstallation({
+            ...factorioInstallationMock,
+            path: folder
+        });
     }
+
+    useEffect(() => {
+        const unlisten = getCurrentWindow().onDragDropEvent((event) => {
+            if (event.payload.type === 'drop') {
+                console.log(event.payload.paths);
+            }
+        });
+
+        return () => {
+            unlisten.then(f => f());
+        };
+    }, []);
 
     return (
         <div className='flex-1 w-full p-6 sm:p-8 lg:p-10'>
