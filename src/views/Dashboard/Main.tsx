@@ -1,9 +1,12 @@
 import { Button } from "#components/ui/button";
+import { useFactorioInstallationStore } from "#store/FactorioInstallation.store";
 import { RiCheckLine, RiSearchLine } from "@remixicon/react";
 import { useNavigate } from "react-router";
 
 export default function MainDashboard() {
     const navigate = useNavigate();
+
+    const { installation } = useFactorioInstallationStore();
 
     return (
         <div className='flex-1 w-full p-6 sm:p-8 lg:p-10'>
@@ -16,7 +19,7 @@ export default function MainDashboard() {
                     <div className='space-y-3'>
                         <h1 className='text-4xl font-semibold tracking-tight sm:text-5xl'>Welcome back</h1>
                         <p className='max-w-2xl text-sm text-muted-foreground sm:text-base'>
-                            Factorio 2.1.x is available and is ready for mod browsing.
+                            Factorio {installation?.version} is available and is ready for mod browsing.
                         </p>
                     </div>
                 </section>

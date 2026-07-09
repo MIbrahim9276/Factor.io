@@ -2,8 +2,15 @@ import { Button } from "#components/ui/button";
 import { Checkbox } from "#components/ui/checkbox";
 import { Label } from "#components/ui/label";
 import { RadioGroup, RadioGroupItem } from "#components/ui/radio-group";
+import { useFactorioInstallationStore } from "#store/FactorioInstallation.store";
 
 export default function Settings() {
+    const { installation, clearInstallation } = useFactorioInstallationStore();
+
+    function clearStoresHandle() {
+        clearInstallation();
+    }
+
     return (
         <div className='flex-1 w-full p-6 sm:p-8 lg:p-10'>
             <div className='flex h-full flex-col gap-8'>
@@ -22,7 +29,7 @@ export default function Settings() {
                             <p className='text-sm text-muted-foreground'>Current install location</p>
                         </div>
                         <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
-                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>C:\Steam\steamapps\common\Factorio</code>
+                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>{installation?.path}</code>
                             <Button className='w-fit'>Browse</Button>
                         </div>
                     </div>
@@ -33,7 +40,7 @@ export default function Settings() {
                             <p className='text-sm text-muted-foreground'>Choose where your mod files are stored</p>
                         </div>
                         <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
-                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>C:\Steam\steamapps\common\Factorio\mods</code>
+                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>{installation?.modsPath}</code>
                             <Button className='w-fit'>Browse</Button>
                         </div>
                     </div>
@@ -44,7 +51,7 @@ export default function Settings() {
                             <p className='text-sm text-muted-foreground'>Choose where your save files are stored</p>
                         </div>
                         <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
-                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>C:\Steam\steamapps\common\Factorio\saves</code>
+                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>{installation?.savesPath}</code>
                             <Button className='w-fit'>Browse</Button>
                         </div>
                     </div>
@@ -85,6 +92,13 @@ export default function Settings() {
                 <section className='flex flex-col gap-2 rounded-lg border p-4'>
                     <p className='text-sm font-medium'>About</p>
                     <p className='text-sm text-muted-foreground'>Version 0.1</p>
+                </section>
+
+                <section className='flex flex-col gap-2 rounded-lg border p-4'>
+                    <p className='text-sm font-medium'>Debug</p>
+                    <Button variant='default' onClick={clearStoresHandle}>
+                        Clear Stores
+                    </Button>
                 </section>
             </div>
         </div>

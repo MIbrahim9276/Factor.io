@@ -1,8 +1,11 @@
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from "#components/ui/navigation-menu";
+import { useFactorioInstallationStore } from "#store/FactorioInstallation.store";
 import { Link } from "react-router";
 
 export default function Nav() {
-    const factorioFound = true;
+    const { installation } = useFactorioInstallationStore();
+
+    const factorioFound = Boolean(installation);
 
     return (
         <NavigationMenu>

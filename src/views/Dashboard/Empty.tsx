@@ -1,7 +1,15 @@
 import { Button } from "#components/ui/button";
+import { useFactorioInstallationStore } from "#store/FactorioInstallation.store";
 import { RiToolsLine } from "@remixicon/react";
+import { factorioInstallationMock } from "../../mock/FactorioInstallationMock";
 
 export default function EmptyDashboard() {
+    const { setInstallation } = useFactorioInstallationStore();
+
+    function locateInstallationHandle() {
+        setInstallation(factorioInstallationMock);
+    }
+
     return (
         <div className='flex-1 w-full p-6 sm:p-8 lg:p-10'>
             <div className='flex h-full flex-col justify-between gap-8'>
@@ -19,7 +27,7 @@ export default function EmptyDashboard() {
                         <p className='text-sm text-muted-foreground'>Choose your Factorio install so the app can discover your mods and settings.</p>
                     </div>
                     <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
-                        <Button variant='default' size='lg'>
+                        <Button variant='default' size='lg' onClick={locateInstallationHandle}>
                             <RiToolsLine />
                             Locate Installation
                         </Button>
