@@ -21,7 +21,10 @@ export default function Settings() {
                             <p className='text-sm font-medium'>Factorio path</p>
                             <p className='text-sm text-muted-foreground'>Current install location</p>
                         </div>
-                        <code className='rounded bg-muted px-3 py-2 text-sm'>C:\Steam\steamapps\common\Factorio</code>
+                        <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
+                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>C:\Steam\steamapps\common\Factorio</code>
+                            <Button className='w-fit'>Browse</Button>
+                        </div>
                     </div>
 
                     <div className='flex flex-col gap-4 rounded-lg border p-4'>
@@ -29,7 +32,21 @@ export default function Settings() {
                             <p className='text-sm font-medium'>Mods folder</p>
                             <p className='text-sm text-muted-foreground'>Choose where your mod files are stored</p>
                         </div>
-                        <Button className='w-fit'>Browse</Button>
+                        <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
+                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>C:\Steam\steamapps\common\Factorio\mods</code>
+                            <Button className='w-fit'>Browse</Button>
+                        </div>
+                    </div>
+
+                    <div className='flex flex-col gap-4 rounded-lg border p-4'>
+                        <div className='space-y-1'>
+                            <p className='text-sm font-medium'>Saves folder</p>
+                            <p className='text-sm text-muted-foreground'>Choose where your save files are stored</p>
+                        </div>
+                        <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
+                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>C:\Steam\steamapps\common\Factorio\saves</code>
+                            <Button className='w-fit'>Browse</Button>
+                        </div>
                     </div>
 
                     <div className='flex flex-col gap-4 rounded-lg border p-4'>

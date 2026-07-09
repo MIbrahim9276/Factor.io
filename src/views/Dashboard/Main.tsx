@@ -15,16 +15,17 @@ export default function MainDashboard() {
                     </div>
                     <div className='space-y-3'>
                         <h1 className='text-4xl font-semibold tracking-tight sm:text-5xl'>Welcome back</h1>
-                        <p className='max-w-2xl text-sm text-muted-foreground sm:text-base'>Factorio 2.1.x is available from your Steam installation and is ready for mod browsing.</p>
+                        <p className='max-w-2xl text-sm text-muted-foreground sm:text-base'>
+                            Factorio 2.1.x is available and is ready for mod browsing.
+                        </p>
                     </div>
                 </section>
 
                 <section className='flex flex-col gap-4 rounded-lg border p-6 sm:flex-row sm:items-center sm:justify-between'>
                     <div className='space-y-1'>
-                        <p className='text-sm font-medium'>Current installation</p>
-                        <p className='text-sm text-muted-foreground'>Steam installation</p>
+                        <p className='text-sm font-medium'>Ready to explore</p>
+                        <p className='text-sm text-muted-foreground'>Open your installed mods and continue from there.</p>
                     </div>
-
                     <Button variant='default' size='lg' onClick={() => navigate('/mods')}>
                         <RiSearchLine />
                         Browse Mods
