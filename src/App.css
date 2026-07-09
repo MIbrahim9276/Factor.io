@@ -5,6 +5,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-factorio: "Factorio", sans-serif;
+}
+
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: 'Space Grotesk Variable', sans-serif;
@@ -96,4 +100,10 @@
   html {
     @apply font-sans;
   }
+}
+
+@font-face {
+  font-family: "Factorio";
+  src: url("./assets/fonts/Full\ Automation-Squared.otf") format("opentype");
+  font-weight: 400;
 }

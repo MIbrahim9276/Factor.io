@@ -1,0 +1,32 @@
+import { Button } from "#components/ui/button";
+import { RiToolsLine } from "@remixicon/react";
+
+export default function EmptyDashboard() {
+    return (
+        <div className='flex-1 w-full p-6 sm:p-8 lg:p-10'>
+            <div className='flex h-full flex-col justify-between gap-8'>
+                <section className='flex flex-col gap-4'>
+                    <p className='text-sm font-medium'>Getting started</p>
+                    <div className='space-y-3'>
+                        <h1 className='text-4xl font-semibold tracking-tight sm:text-5xl'>Welcome to Refactorio</h1>
+                        <p className='max-w-2xl text-sm text-muted-foreground sm:text-base'>A modding workspace is ready. Point the app to your Factorio install and you can start managing mods right away.</p>
+                    </div>
+                </section>
+
+                <section className='flex flex-col gap-4 rounded-lg border p-6'>
+                    <div className='flex flex-col gap-2'>
+                        <p className='text-sm font-medium'>Next step</p>
+                        <p className='text-sm text-muted-foreground'>Choose your Factorio install so the app can discover your mods and settings.</p>
+                    </div>
+                    <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
+                        <Button variant='default' size='lg'>
+                            <RiToolsLine />
+                            Locate Installation
+                        </Button>
+                        <p className='text-sm text-muted-foreground'>You can also drag the install folder here.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    );
+}

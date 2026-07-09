@@ -1,6 +1,6 @@
 import { Button } from "#components/ui/button";
 import {
-    RiFlaskLine,
+    RiPlayLargeLine,
     RiSettingsLine
 } from '@remixicon/react';
 import { useNavigate } from "react-router";
@@ -10,12 +10,10 @@ export default function Header() {
 
     return (
         <div className='flex p-4 border-b-2 justify-between items-center'>
-            <button onClick={() => navigate('/')}>
-                <RiFlaskLine />
-            </button>
-            <h1 className='text-4xl'>Refactorio</h1>
-            <Button variant='secondary' size='icon-lg' onClick={() => navigate('/settings')}>
-                <RiSettingsLine />
+            <h1 className='text-4xl font-factorio text-primary'>Refactorio</h1>
+            <Button variant='default' size='lg' onClick={() => navigate('/settings')}>
+                <RiPlayLargeLine />
+                Launch Factorio
             </Button>
         </div>
     );

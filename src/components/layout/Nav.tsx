@@ -2,17 +2,39 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuL
 import { Link } from "react-router";
 
 export default function Nav() {
-    const itemClassName = `${navigationMenuTriggerStyle()} w-full`;
+    const factorioFound = true;
 
     return (
-        <NavigationMenu orientation='vertical'>
-            <NavigationMenuList className='flex-col justify-stretch gap-4'>
-                <NavigationMenuItem className='w-full'>
-                    <NavigationMenuLink className={itemClassName} render={<Link to='/'>Dashboard</Link>} />
+        <NavigationMenu>
+            <NavigationMenuList>
+                <NavigationMenuItem>
+                    <NavigationMenuLink
+                        render={<Link to='/' />}
+                        className={navigationMenuTriggerStyle()}
+                    >
+                        Dashboard
+                    </NavigationMenuLink>
                 </NavigationMenuItem>
-                <NavigationMenuItem className='w-full'>
-                    <NavigationMenuLink className={itemClassName} render={<Link to='/mods'>ModList</Link>} />
-                </NavigationMenuItem>
+                {factorioFound && (
+                    <>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink
+                            render={<Link to='/mods' />}
+                            className={navigationMenuTriggerStyle()}
+                        >
+                            Installed Mods
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink
+                            render={<Link to='/settings' />}
+                            className={navigationMenuTriggerStyle()}
+                        >
+                            Settings
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
+                    </>
+                )}
             </NavigationMenuList>
         </NavigationMenu>
     );

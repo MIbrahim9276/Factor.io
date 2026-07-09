@@ -12,8 +12,9 @@
   "app": {
     "windows": [
       {
-        "title": "refactorio",
-        "maximized": true
+        "title": "Refactorio",
+        "maxWidth": 800,
+        "maxHeight": 600
       }
     ],
     "security": {
