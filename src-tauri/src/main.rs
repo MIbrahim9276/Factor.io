@@ -2,7 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-
-    refactorio_lib::run();
-
+    refactorio_lib::run()
 }

@@ -12,9 +12,9 @@
   "app": {
     "windows": [
       {
-        "title": "factor-io",
-        "width": 800,
-        "height": 600
+        "title": "Refactorio",
+        "maxWidth": 800,
+        "maxHeight": 600
       }
     ],
     "security": {
