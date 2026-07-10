@@ -31,9 +31,11 @@ jobs:
               run: npm ci
 
             - name: Check Rust formatting
+              working-directory: src-tauri
               run: cargo fmt --check
 
             - name: Run Clippy
+              working-directory: src-tauri
               run: cargo clippy --all-targets --all-features -- -D warnings
 
             - name: Lint frontend
@@ -63,6 +65,7 @@ jobs:
               run: npm ci
 
             - name: Run Rust tests
+              working-directory: src-tauri
               run: cargo test --all-features
 
             - name: Run frontend tests
@@ -92,6 +95,7 @@ jobs:
               run: npm ci
 
             - name: Check Rust build
+              working-directory: src-tauri
               run: cargo check --all-features
 
             - name: Build frontend
