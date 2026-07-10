@@ -1,11 +1,11 @@
 import { Button } from "#components/ui/button";
 import { useFactorioInstallationStore } from "#store/FactorioInstallation.store";
 import { RiToolsLine } from "@remixicon/react";
-import { factorioInstallationMock } from "../../mock/FactorioInstallationMock";
 import { useEffect } from "react";
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import { open } from '@tauri-apps/plugin-dialog';
 import { invoke } from "@tauri-apps/api/core";
+import { FactorioInstallation } from "#types/FactorioInstallation";
 
 export default function EmptyDashboard() {
     const { setInstallation } = useFactorioInstallationStore();
@@ -18,15 +18,12 @@ export default function EmptyDashboard() {
         if (!folder) return;
 
         try {
-            const path = await invoke("locate_installation", {
+            const installation = await invoke<FactorioInstallation>("locate_installation", {
                 path: folder
             });
-            console.log(path);
+            console.log(installation);
 
-            setInstallation({
-                ...factorioInstallationMock,
-                path: folder
-            });
+            setInstallation(installation);
         } catch(err: any) {
             console.log(err);
         }

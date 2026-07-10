@@ -48,7 +48,7 @@ export default function Settings() {
                             <p className='text-sm text-muted-foreground'>Choose where your mod files are stored</p>
                         </div>
                         <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
-                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>{installation?.modsPath}</code>
+                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>{installation?.mods_path}</code>
                             <Button className='w-fit'>Browse</Button>
                         </div>
                     </div>
