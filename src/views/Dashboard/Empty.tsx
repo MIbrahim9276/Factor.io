@@ -29,11 +29,21 @@ export default function EmptyDashboard() {
         }
     }
 
+    async function dropInstallationHandle(path: string) {
+        try {
+            const installation = await invoke<FactorioInstallation>("locate_installation", { path });
+            console.log(installation);
+
+            setInstallation(installation);
+        } catch(err: any) {
+            console.log(err);
+        }
+    }
+
     useEffect(() => {
         const unlisten = getCurrentWindow().onDragDropEvent((event) => {
-            if (event.payload.type === 'drop') {
-                console.log(event.payload.paths);
-            }
+            if (event.payload.type === 'drop')
+                dropInstallationHandle(event.payload.paths[0]);
         });
 
         return () => {
