@@ -1,7 +1,6 @@
 import { Button } from "#components/ui/button";
 import {
-    RiPlayLargeLine,
-    RiSettingsLine
+    RiPlayLargeLine
 } from '@remixicon/react';
 import { useNavigate } from "react-router";
 

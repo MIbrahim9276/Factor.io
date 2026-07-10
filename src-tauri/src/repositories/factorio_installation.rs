@@ -5,7 +5,7 @@ use crate::infra::error::AppResult;
 pub struct FactorioInstallationRepository;
 
 impl FactorioInstallationRepository {
-    pub fn save(installation: FactorioInstallation, state: tauri::State<'_, AppState>) -> AppResult<FactorioInstallation> {
+    pub fn save(installation: FactorioInstallation, state: &tauri::State<'_, AppState>) -> AppResult<FactorioInstallation> {
         let mut config = state.config.lock()?;
 
         config.installation = Some(installation.clone());
@@ -14,12 +14,12 @@ impl FactorioInstallationRepository {
         return Ok(installation);
     }
 
-    pub fn get(state: tauri::State<'_, AppState>) -> AppResult<Option<FactorioInstallation>> {
+    pub fn get(state: &tauri::State<'_, AppState>) -> AppResult<Option<FactorioInstallation>> {
         let config = state.config.lock()?;
         return Ok(config.installation.clone());
     }
 
-    pub fn clear(state: tauri::State<'_, AppState>) -> AppResult<()> {
+    pub fn clear(state: &tauri::State<'_, AppState>) -> AppResult<()> {
         let mut config = state.config.lock()?;
 
         config.installation = None;

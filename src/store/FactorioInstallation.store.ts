@@ -1,6 +1,5 @@
 import { FactorioInstallation } from '#types/FactorioInstallation';
 import { create } from 'zustand';
-import { factorioInstallationMock } from '../mock/FactorioInstallationMock';
 
 interface FactorioInstallationStore {
     installation?: FactorioInstallation;

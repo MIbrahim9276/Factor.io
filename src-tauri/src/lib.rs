@@ -30,6 +30,7 @@ pub fn run() {
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
+            commands::detect_installation::detect_installation,
             commands::locate_installation::locate_installation
         ])
         .run(tauri::generate_context!())
