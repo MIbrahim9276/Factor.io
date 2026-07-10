@@ -3,12 +3,17 @@ import { Checkbox } from "#components/ui/checkbox";
 import { Label } from "#components/ui/label";
 import { RadioGroup, RadioGroupItem } from "#components/ui/radio-group";
 import { useFactorioInstallationStore } from "#store/FactorioInstallation.store";
+import { useNavigate } from "react-router";
 
 export default function Settings() {
     const { installation, clearInstallation } = useFactorioInstallationStore();
 
+    const navigate = useNavigate();
+
     function clearStoresHandle() {
         clearInstallation();
+
+        navigate('/');
     }
 
     return (
@@ -54,7 +59,7 @@ export default function Settings() {
                             <p className='text-sm text-muted-foreground'>Choose where your save files are stored</p>
                         </div>
                         <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
-                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>{installation?.savesPath}</code>
+                            <code className='flex-1 bg-muted px-3 py-1 text-sm select-text'>{installation?.saves_path}</code>
                             <Button className='w-fit'>Browse</Button>
                         </div>
                     </div>

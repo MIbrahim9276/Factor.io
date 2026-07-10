@@ -4,6 +4,6 @@ export const factorioInstallationMock: FactorioInstallation = {
     id: 'test',
     path: 'C:\\Steam\\steamapps\\common\\Factorio',
     modsPath: 'C:\\Steam\\steamapps\\common\\Factorio\\mods',
-    savesPath: 'C:\\Steam\\steamapps\\common\\Factorio\\saves',
+    saves_path: 'C:\\Steam\\steamapps\\common\\Factorio\\saves',
     version: '2.0.72'
 };

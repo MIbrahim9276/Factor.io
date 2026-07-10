@@ -5,6 +5,7 @@ import { factorioInstallationMock } from "../../mock/FactorioInstallationMock";
 import { useEffect } from "react";
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import { open } from '@tauri-apps/plugin-dialog';
+import { invoke } from "@tauri-apps/api/core";
 
 export default function EmptyDashboard() {
     const { setInstallation } = useFactorioInstallationStore();
@@ -14,13 +15,21 @@ export default function EmptyDashboard() {
             multiple: false,
             directory: true
         });
-        console.log(folder);
         if (!folder) return;
-        
-        setInstallation({
-            ...factorioInstallationMock,
-            path: folder
-        });
+
+        try {
+            const path = await invoke("locate_installation", {
+                path: folder
+            });
+            console.log(path);
+
+            setInstallation({
+                ...factorioInstallationMock,
+                path: folder
+            });
+        } catch(err: any) {
+            console.log(err);
+        }
     }
 
     useEffect(() => {

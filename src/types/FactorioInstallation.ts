@@ -1,7 +1,7 @@
 export interface FactorioInstallation {
     id: string;
     path: string;
-    modsPath: string;
-    savesPath: string;
+    mods_path: string;
+    saves_path: string;
     version: string;
 }
