@@ -1,22 +1,16 @@
 use std::env;
 use std::path::{Path, PathBuf};
 
-use serde::Deserialize;
-
 use crate::core::app_state::AppState;
+use crate::core::types::FactorioInfo;
 use crate::infra::codec::json;
 use crate::infra::error::{AppError, AppResult};
-use crate::models::factorio_installation::FactorioInstallation;
-use crate::repositories::factorio_installation::FactorioInstallationRepository;
+use crate::models::factorio_installation_model::FactorioInstallation;
+use crate::repositories::factorio_installation_repository;
 
 const DEFAULT_INSTALLATION_PATHS: [&str; 1] = [
     r"C:\Steam\steamapps\common\Factorio"
 ];
-
-#[derive(Debug, Deserialize)]
-struct FactorioInfo {
-    version: String,
-}
 
 fn validate_installation(path: &Path) -> AppResult<FactorioInfo> {
     if !path.is_dir() {
@@ -57,7 +51,7 @@ fn build_installation(path: &Path, info: FactorioInfo) -> AppResult<FactorioInst
 }
 
 pub fn detect_installation(state: tauri::State<'_, AppState>) -> AppResult<FactorioInstallation> {
-    if let Some(installation) = FactorioInstallationRepository::get(&state)? {
+    if let Some(installation) = factorio_installation_repository::get(&state)? {
         return Ok(installation);
     }
 
@@ -66,7 +60,7 @@ pub fn detect_installation(state: tauri::State<'_, AppState>) -> AppResult<Facto
 
         if let Ok(info) = validate_installation(&install_path) {
             let installation = build_installation(&install_path, info)?;
-            return FactorioInstallationRepository::save(installation, &state);
+            return factorio_installation_repository::save(installation, &state);
         }
     }
 
@@ -79,5 +73,5 @@ pub fn locate_installation(path: String, state: tauri::State<'_, AppState>) -> A
     let info = validate_installation(&install_path)?;
     let installation = build_installation(&install_path, info)?;
 
-    FactorioInstallationRepository::save(installation, &state)
+    factorio_installation_repository::save(installation, &state)
 }

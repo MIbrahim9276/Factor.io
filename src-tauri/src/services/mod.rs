@@ -1,1 +1,1 @@
-pub mod factorio_installation;
+pub mod factorio_installation_service;

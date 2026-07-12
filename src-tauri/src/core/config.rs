@@ -3,7 +3,7 @@ use std::path::Path;
 use serde::{Deserialize, Serialize};
 
 use crate::infra::error::AppResult;
-use crate::models::factorio_installation::FactorioInstallation;
+use crate::models::factorio_installation_model::FactorioInstallation;
 use crate::infra::filesystem::{read_file, save_to_file};
 use crate::infra::codec::toml::{parse, serialize};
 
