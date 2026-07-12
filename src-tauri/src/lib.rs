@@ -31,7 +31,8 @@ pub fn run() {
         })
         .invoke_handler(tauri::generate_handler![
             commands::detect_installation::detect_installation,
-            commands::locate_installation::locate_installation
+            commands::locate_installation::locate_installation,
+            commands::scan_mods::scan_mods
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

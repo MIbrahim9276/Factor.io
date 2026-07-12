@@ -3,7 +3,7 @@ export interface Mod {
     title: string;
     version: string;
     author: string;
-    description: string;
-    enabled: boolean;
-    installed: boolean;
+    path: string;
+    enabled?: string;
+    thumbnail_path: string;
 }

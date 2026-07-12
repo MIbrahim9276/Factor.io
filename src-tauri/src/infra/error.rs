@@ -20,6 +20,9 @@ pub enum AppError {
     #[error("Lock error: {0}")]
     Lock(String),
 
+    #[error("Zip error: {0}")]
+    Zip(#[from] zip::result::ZipError),
+
     #[error("{0}")]
     Other(String)
 }
