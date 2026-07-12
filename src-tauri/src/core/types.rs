@@ -11,5 +11,8 @@ pub struct ModInfo {
     pub version: String,
     pub title: String,
     pub author: String,
-    pub description: String
+    pub description: String,
+    pub dependencies: Option<Vec<String>>,
+    pub factorio_version: Option<String>,
+    pub homepage: Option<String>
 }
