@@ -16,3 +16,14 @@ pub struct ModInfo {
     pub factorio_version: Option<String>,
     pub homepage: Option<String>
 }
+
+#[derive(Debug, Deserialize)]
+pub struct ModListEntry {
+    pub name: String,
+    pub enabled: bool
+}
+
+#[derive(Debug, Deserialize)]
+pub struct ModListInfo {
+    pub mods: Vec<ModListEntry>
+}

@@ -65,7 +65,7 @@ pub fn get_all(state: &tauri::State<'_, AppState>) -> AppResult<Vec<Mod>> {
                 dependencies: parse_dependencies(info.dependencies),
                 factorio_version: info.factorio_version,
                 homepage: info.homepage,
-                enabled: None,
+                enabled: false,
                 path: entry.display().to_string(),
                 thumbnail_path: Some(thumbnail_path.display().to_string())
             };
@@ -87,7 +87,7 @@ pub fn get_all(state: &tauri::State<'_, AppState>) -> AppResult<Vec<Mod>> {
                 dependencies: parse_dependencies(info.dependencies),
                 factorio_version: info.factorio_version,
                 homepage: info.homepage,
-                enabled: None,
+                enabled: false,
                 path: entry.display().to_string(),
                 thumbnail_path: Some(thumbnail_path.display().to_string())
             };

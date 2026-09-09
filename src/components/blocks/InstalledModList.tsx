@@ -25,7 +25,7 @@ export default function InstalledModList({ selectedModName, onSelectMod }: Insta
                         className={`flex items-center justify-between gap-4 rounded-md border p-3 text-left transition-colors hover:bg-muted ${selectedModName === mod.name ? "bg-muted" : ""}`}
                     >
                         <div className='flex items-center gap-3'>
-                            <Checkbox id={mod.name} />
+                            <Checkbox id={mod.name} checked={mod.enabled} onClick={(e) => e.stopPropagation()} />
                             <label htmlFor={mod.name} className='text-sm font-medium'>{mod.title || mod.name}</label>
                         </div>
                         <span className='text-sm text-muted-foreground'>{mod.version}</span>

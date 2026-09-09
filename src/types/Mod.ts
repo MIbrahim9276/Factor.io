@@ -14,6 +14,6 @@ export interface Mod {
     factorio_version?: string;
     homepage?: string;
     path: string;
-    enabled?: boolean;
+    enabled: boolean;
     thumbnail_path?: string;
 }

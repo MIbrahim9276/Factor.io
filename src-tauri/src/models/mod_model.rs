@@ -17,7 +17,7 @@ pub struct Mod {
     pub dependencies: Vec<ModDependency>,
     pub factorio_version: Option<String>,
     pub homepage: Option<String>,
-    pub enabled: Option<bool>,
+    pub enabled: bool,
     pub path: String,
     pub thumbnail_path: Option<String>
 }
