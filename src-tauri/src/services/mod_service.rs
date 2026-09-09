@@ -5,7 +5,7 @@ use crate::infra::error::AppResult;
 use crate::models::mod_model::Mod;
 use crate::repositories::{mod_list_repository, mod_repository};
 
-pub fn get_all(state: tauri::State<'_, AppState>) -> AppResult<Vec<Mod>> {
+pub fn get_all(state: &tauri::State<'_, AppState>) -> AppResult<Vec<Mod>> {
     let mut installed_mods = mod_repository::get_all(&state)?;
     let mod_list_info = mod_list_repository::get(&state)?;
 

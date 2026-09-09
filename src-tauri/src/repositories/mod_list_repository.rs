@@ -15,7 +15,7 @@ pub fn get(state: &tauri::State<'_, AppState>) -> AppResult<ModListInfo> {
 
     let mods_path = PathBuf::from(mods_path_string);
 
-    let mods_list_path = mods_path.join("mods-list.json");
+    let mods_list_path = mods_path.join("mod-list.json");
 
     let content = read_file(&mods_list_path)?;
 
